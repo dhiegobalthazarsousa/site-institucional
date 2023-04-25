@@ -9,8 +9,10 @@ header("Content-Type: text/html; charset=utf-8");
                 <li>Produtos e Serviços</li>
                 <li>Contato</li>
             </ul>
-            <?php if(isset($_SESSION["username"])): ?>
-                <p>Olá, <?php echo $_SESSION["username"]; ?></p>
+            <?php if(isset($_SESSION["username"]) && $_SESSION["image"]): ?>
+                <img src="<?php echo $_SESSION["image"]; ?>" />
+            <?php else: ?>
+                <a href="login.php">Faça Login</a>
             <?php endif; ?>
         </nav>
     </header>

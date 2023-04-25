@@ -1,24 +1,44 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
 session_start();
-if(!isset($_SESSION["isLogged"])){
-    header("Location: http://localhost/site-institucional/");exit;
-}
-echo var_dump($_SERVER['SCRIPT_URI'].dirname(dirname($_SERVER["REQUEST_URI"])));
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
-<?php header("Content-Type: text/html; charset=utf-8");?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php require_once($_SERVER["DOCUMENT_ROOT"]."/site-institucional/pages/fragments/imports.php")?>
-    <title>Document</title>
-</head>
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=][, initial-scale=1.0">
+      <title>Movies Cinema Salazar</title>
+      <!-- Font Awesome -->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+        />
+      <!-- Google Fonts -->
+        <link
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../assets/style.css" / >
+  </head>
 <body>
+    <section class="nav-header">
     <?php
-        require_once($_SERVER["SERVER_NAME"]."/site-institucional/pages/fragments/header.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/site-institucional/pages/fragments/header.php");
     ?>
-    <p>Home</p>
+    </section>
+    <h2>Sugestões</h2>
+    <form class="flex-column" action=".helpers/sugestao_handle.php">
+        <label for="" class="label flex-column">
+            Nome:
+        <input type="text" name="name" />
+        </label>
+        <label class="label flex-column">Sugestão
+        <textarea name="sugestao" rows="5" cols="33">Insira seu texto aqui</textarea>
+        </label>
+        <button type="submit">Enviar Sugestão</button>
+    </form>
 </body>
 </html>
